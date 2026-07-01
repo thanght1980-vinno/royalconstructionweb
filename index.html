@@ -1,0 +1,1342 @@
+<!doctype html>
+<html lang='vi'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <meta name='description' content='Royal Việt Nam cung cấp giải pháp thi công nhà máy, nhà xưởng, công trình dân dụng, cải tạo bệnh viện và hạ tầng viễn thông trên toàn quốc.'>
+  <title>Royal Việt Nam | Xây dựng công nghiệp và dân dụng</title>
+  <style>
+    :root {
+      --green-950: #063b28;
+      --green-900: #075236;
+      --green-800: #0a6842;
+      --green-700: #0b7b4a;
+      --green-600: #11965a;
+      --green-500: #27b66e;
+      --green-100: #e7f7ee;
+      --lime: #9adf5b;
+      --ink: #10231a;
+      --muted: #64756c;
+      --line: #dce8e1;
+      --paper: #f7faf8;
+      --white: #ffffff;
+      --shadow: 0 22px 60px rgba(6, 59, 40, 0.13);
+      --shadow-soft: 0 12px 34px rgba(6, 59, 40, 0.09);
+      --radius-lg: 28px;
+      --radius-md: 18px;
+      --container: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--white);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    body.menu-open { overflow: hidden; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+    button { cursor: pointer; }
+
+    .container {
+      width: min(calc(100% - 40px), var(--container));
+      margin-inline: auto;
+    }
+    .section { padding: 104px 0; }
+    .section-sm { padding: 76px 0; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      color: var(--green-700);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before {
+      content: '';
+      width: 28px;
+      height: 3px;
+      border-radius: 99px;
+      background: var(--green-500);
+    }
+    .section-title {
+      max-width: 780px;
+      margin: 0;
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1.08;
+      letter-spacing: -.035em;
+    }
+    .section-lead {
+      max-width: 730px;
+      margin: 20px 0 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 32px;
+      margin-bottom: 46px;
+    }
+    .section-head .section-lead { margin-top: 0; max-width: 480px; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 52px;
+      padding: 0 22px;
+      border: 1px solid transparent;
+      border-radius: 14px;
+      font-weight: 800;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary {
+      color: var(--white);
+      background: var(--green-600);
+      box-shadow: 0 12px 26px rgba(17, 150, 90, .28);
+    }
+    .btn-primary:hover { background: var(--green-700); }
+    .btn-light {
+      color: var(--green-950);
+      background: rgba(255,255,255,.92);
+      border-color: rgba(255,255,255,.72);
+    }
+    .btn-outline {
+      color: var(--green-800);
+      border-color: #b9d7c7;
+      background: var(--white);
+    }
+    .btn-icon { width: 18px; height: 18px; }
+
+    /* Header */
+    .site-header {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 1000;
+      transition: background .25s ease, box-shadow .25s ease, backdrop-filter .25s ease;
+    }
+    .site-header.scrolled {
+      background: rgba(255,255,255,.92);
+      box-shadow: 0 8px 30px rgba(6, 59, 40, .08);
+      backdrop-filter: blur(18px);
+    }
+    .nav {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      color: var(--white);
+      font-weight: 900;
+      letter-spacing: -.02em;
+    }
+    .site-header.scrolled .brand { color: var(--green-950); }
+    .brand-logo {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: var(--white);
+      box-shadow: 0 4px 14px rgba(0,0,0,.12);
+    }
+    .brand span { display: block; line-height: 1.05; }
+    .brand small {
+      display: block;
+      margin-top: 4px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .13em;
+      opacity: .72;
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      color: rgba(255,255,255,.88);
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .site-header.scrolled .nav-links { color: #345045; }
+    .nav-links a { position: relative; }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 100%;
+      bottom: -8px;
+      height: 2px;
+      border-radius: 9px;
+      background: var(--lime);
+      transition: right .2s ease;
+    }
+    .nav-links a:hover::after { right: 0; }
+    .nav-actions { display: flex; align-items: center; gap: 12px; }
+    .header-phone {
+      display: flex;
+      flex-direction: column;
+      color: var(--white);
+      line-height: 1.15;
+      font-size: 12px;
+    }
+    .site-header.scrolled .header-phone { color: var(--green-950); }
+    .header-phone strong { margin-top: 4px; font-size: 15px; }
+    .menu-toggle {
+      display: none;
+      width: 46px;
+      height: 46px;
+      border: 1px solid rgba(255,255,255,.35);
+      border-radius: 12px;
+      background: rgba(255,255,255,.12);
+      color: var(--white);
+    }
+    .site-header.scrolled .menu-toggle {
+      border-color: var(--line);
+      color: var(--green-950);
+      background: var(--white);
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      min-height: 820px;
+      display: flex;
+      align-items: center;
+      color: var(--white);
+      background:
+        linear-gradient(90deg, rgba(3,35,24,.92) 0%, rgba(4,57,36,.80) 44%, rgba(4,57,36,.28) 76%, rgba(4,57,36,.18) 100%),
+        url('assets/hero.webp') center 44% / cover no-repeat;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 560px;
+      height: 560px;
+      right: -220px;
+      bottom: -250px;
+      border: 90px solid rgba(154,223,91,.16);
+      border-radius: 50%;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: auto 0 0;
+      height: 130px;
+      background: linear-gradient(to top, rgba(3,35,24,.45), transparent);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: min(780px, 70%);
+      padding-top: 86px;
+    }
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      margin-bottom: 24px;
+      border: 1px solid rgba(255,255,255,.26);
+      border-radius: 99px;
+      background: rgba(255,255,255,.09);
+      backdrop-filter: blur(8px);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .hero-kicker i {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--lime);
+      box-shadow: 0 0 0 5px rgba(154,223,91,.16);
+    }
+    .hero h1 {
+      margin: 0;
+      max-width: 760px;
+      font-size: clamp(44px, 7vw, 82px);
+      line-height: 1.02;
+      letter-spacing: -.05em;
+    }
+    .hero h1 span { color: var(--lime); }
+    .hero p {
+      max-width: 700px;
+      margin: 26px 0 0;
+      color: rgba(255,255,255,.80);
+      font-size: clamp(17px, 2vw, 20px);
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 36px;
+    }
+    .hero-trust {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 50px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(255,255,255,.18);
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: rgba(255,255,255,.86);
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .trust-dot {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      color: var(--lime);
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.18);
+    }
+    .hero-card {
+      position: absolute;
+      z-index: 3;
+      right: max(26px, calc((100vw - var(--container)) / 2));
+      bottom: 44px;
+      width: 300px;
+      padding: 24px;
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 24px;
+      background: rgba(255,255,255,.92);
+      color: var(--ink);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+    .hero-card strong { display: block; color: var(--green-800); font-size: 16px; }
+    .hero-card p { margin: 8px 0 18px; color: var(--muted); font-size: 14px; }
+    .hero-card a { color: var(--green-700); font-weight: 800; font-size: 14px; }
+
+    /* Stats */
+    .stats-wrap {
+      position: relative;
+      z-index: 5;
+      margin-top: -42px;
+    }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-radius: 24px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .stat {
+      padding: 30px 28px;
+      border-right: 1px solid var(--line);
+    }
+    .stat:last-child { border-right: 0; }
+    .stat-value {
+      display: flex;
+      align-items: baseline;
+      gap: 5px;
+      color: var(--green-800);
+      font-size: 38px;
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -.04em;
+    }
+    .stat-label { margin-top: 10px; color: var(--muted); font-size: 14px; }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: .92fr 1.08fr;
+      align-items: center;
+      gap: 74px;
+    }
+    .about-media { position: relative; }
+    .about-media::before {
+      content: '';
+      position: absolute;
+      inset: 44px -24px -24px 48px;
+      border-radius: var(--radius-lg);
+      background: var(--green-100);
+    }
+    .about-media img {
+      position: relative;
+      width: 100%;
+      aspect-ratio: .84;
+      object-fit: cover;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+    }
+    .about-badge {
+      position: absolute;
+      right: -25px;
+      bottom: 40px;
+      width: 178px;
+      padding: 18px;
+      border-radius: 18px;
+      background: var(--green-900);
+      color: var(--white);
+      box-shadow: var(--shadow-soft);
+    }
+    .about-badge b { display: block; font-size: 34px; line-height: 1; }
+    .about-badge span { display: block; margin-top: 8px; font-size: 13px; opacity: .82; }
+    .about-copy .section-title { font-size: clamp(34px, 4.7vw, 56px); }
+    .about-copy p { color: var(--muted); font-size: 17px; }
+    .check-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 15px 24px;
+      margin: 28px 0 34px;
+      padding: 0;
+      list-style: none;
+    }
+    .check-list li {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-size: 15px;
+      font-weight: 750;
+    }
+    .check-list i {
+      display: grid;
+      place-items: center;
+      flex: 0 0 27px;
+      width: 27px;
+      height: 27px;
+      border-radius: 50%;
+      color: var(--green-700);
+      background: var(--green-100);
+      font-style: normal;
+    }
+
+    /* Services */
+    .services { background: var(--paper); }
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .service-card {
+      position: relative;
+      min-height: 430px;
+      display: flex;
+      align-items: flex-end;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      isolation: isolate;
+    }
+    .service-card img {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .45s ease;
+    }
+    .service-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(to top, rgba(2,35,23,.94) 0%, rgba(2,35,23,.62) 48%, rgba(2,35,23,.05) 78%);
+    }
+    .service-card:hover img { transform: scale(1.045); }
+    .service-body { padding: 28px; color: var(--white); }
+    .service-no {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      margin-bottom: 18px;
+      border: 1px solid rgba(255,255,255,.28);
+      border-radius: 12px;
+      background: rgba(255,255,255,.12);
+      color: var(--lime);
+      font-weight: 900;
+    }
+    .service-card h3 { margin: 0; font-size: 24px; line-height: 1.2; }
+    .service-card p { margin: 12px 0 0; color: rgba(255,255,255,.74); font-size: 14px; }
+
+    /* Capacity */
+    .capacity-layout {
+      display: grid;
+      grid-template-columns: 330px 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+    .capacity-tabs {
+      position: sticky;
+      top: 110px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--white);
+      box-shadow: var(--shadow-soft);
+    }
+    .tab-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 17px 18px;
+      border: 0;
+      border-radius: 13px;
+      color: #4e665b;
+      background: transparent;
+      text-align: left;
+      font-weight: 800;
+    }
+    .tab-btn.active { color: var(--white); background: var(--green-800); }
+    .tab-btn span:last-child { opacity: .5; }
+    .capacity-panel {
+      display: none;
+      min-height: 540px;
+      padding: 42px;
+      border-radius: 24px;
+      background: var(--green-950);
+      color: var(--white);
+      overflow: hidden;
+    }
+    .capacity-panel.active { display: block; animation: fadeUp .35s ease both; }
+    .capacity-panel h3 { margin: 0; font-size: 34px; line-height: 1.15; }
+    .capacity-panel > p { max-width: 690px; color: rgba(255,255,255,.72); }
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 30px;
+    }
+    .metric-card {
+      padding: 22px;
+      border: 1px solid rgba(255,255,255,.13);
+      border-radius: 17px;
+      background: rgba(255,255,255,.06);
+    }
+    .metric-card b { display: block; color: var(--lime); font-size: 30px; line-height: 1; }
+    .metric-card span { display: block; margin-top: 9px; color: rgba(255,255,255,.72); font-size: 13px; }
+    .skill-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+    .skill-item {
+      padding: 14px 16px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 13px;
+      background: rgba(255,255,255,.05);
+      color: rgba(255,255,255,.84);
+      font-size: 14px;
+    }
+    .equipment-cloud { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
+    .equipment-cloud span {
+      padding: 10px 14px;
+      border-radius: 99px;
+      color: rgba(255,255,255,.84);
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.13);
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 28px;
+    }
+    .cert-card {
+      display: grid;
+      grid-template-columns: 95px 1fr;
+      gap: 18px;
+      align-items: center;
+      padding: 18px;
+      border: 1px solid rgba(255,255,255,.13);
+      border-radius: 16px;
+      background: rgba(255,255,255,.06);
+    }
+    .cert-card img { width: 95px; height: 125px; object-fit: cover; border-radius: 8px; }
+    .cert-card b { display: block; font-size: 16px; }
+    .cert-card small { display: block; margin-top: 8px; color: rgba(255,255,255,.62); }
+    .finance-bars { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 32px; }
+    .chart-card { padding: 24px; border-radius: 17px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.13); }
+    .chart-card h4 { margin: 0 0 24px; font-size: 15px; }
+    .bar-chart { height: 230px; display: flex; align-items: end; justify-content: space-around; gap: 18px; border-bottom: 1px solid rgba(255,255,255,.18); }
+    .bar-col { flex: 1; text-align: center; }
+    .bar {
+      width: 54px;
+      max-width: 100%;
+      margin: 0 auto;
+      border-radius: 9px 9px 0 0;
+      background: linear-gradient(to top, var(--green-500), var(--lime));
+      position: relative;
+    }
+    .bar em { position: absolute; left: 50%; top: -30px; transform: translateX(-50%); color: var(--white); font-size: 12px; font-style: normal; font-weight: 800; white-space: nowrap; }
+    .bar-col span { display: block; margin-top: 9px; color: rgba(255,255,255,.62); font-size: 12px; }
+
+    /* Process */
+    .process { background: var(--green-100); }
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .process-card {
+      min-height: 220px;
+      padding: 28px;
+      border: 1px solid #cfe5d8;
+      border-radius: 20px;
+      background: rgba(255,255,255,.72);
+    }
+    .process-step {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      color: var(--green-700);
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+    }
+    .process-step b { font-size: 38px; line-height: 1; opacity: .16; }
+    .process-card h3 { margin: 18px 0 10px; font-size: 21px; }
+    .process-card p { margin: 0; color: var(--muted); font-size: 14px; }
+
+    /* Projects */
+    .projects-toolbar { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px; }
+    .filter-btn {
+      padding: 10px 15px;
+      border: 1px solid var(--line);
+      border-radius: 99px;
+      color: var(--muted);
+      background: var(--white);
+      font-weight: 750;
+    }
+    .filter-btn.active { color: var(--white); background: var(--green-800); border-color: var(--green-800); }
+    .project-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .project-card {
+      position: relative;
+      min-height: 420px;
+      border-radius: 24px;
+      overflow: hidden;
+      background: #dfe9e3;
+      box-shadow: var(--shadow-soft);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .project-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+    .project-card img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+    .project-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(2,30,21,.92), rgba(2,30,21,.06) 68%); }
+    .project-info { position: absolute; z-index: 2; inset: auto 0 0; padding: 30px; color: var(--white); }
+    .project-meta { display: flex; flex-wrap: wrap; gap: 9px; margin-bottom: 12px; }
+    .project-meta span { padding: 6px 9px; border-radius: 99px; background: rgba(255,255,255,.13); border: 1px solid rgba(255,255,255,.20); font-size: 11px; font-weight: 800; }
+    .project-info h3 { margin: 0; font-size: 27px; line-height: 1.18; }
+    .project-info p { margin: 9px 0 0; color: rgba(255,255,255,.72); font-size: 14px; }
+    .project-card.hidden { display: none; }
+
+    /* Tech */
+    .tech-section { background: var(--green-950); color: var(--white); }
+    .tech-grid { display: grid; grid-template-columns: 1.02fr .98fr; align-items: center; gap: 64px; }
+    .tech-section .eyebrow { color: var(--lime); }
+    .tech-section .eyebrow::before { background: var(--lime); }
+    .tech-section .section-lead { color: rgba(255,255,255,.68); }
+    .tech-points { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; margin: 30px 0 34px; }
+    .tech-point { padding: 16px; border-radius: 14px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.11); color: rgba(255,255,255,.82); font-size: 14px; }
+    .tech-media { position: relative; }
+    .tech-media img { width: 100%; aspect-ratio: 1.08; object-fit: cover; border-radius: 24px; }
+    .tech-media::after { content: 'VTOPBASE'; position: absolute; right: -14px; bottom: -16px; padding: 14px 18px; border-radius: 13px; color: var(--green-950); background: var(--lime); font-weight: 900; letter-spacing: .08em; }
+
+    /* Commitments */
+    .commit-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+    .commit-card { padding: 24px 20px; border: 1px solid var(--line); border-radius: 18px; background: var(--white); }
+    .commit-icon { display: grid; place-items: center; width: 44px; height: 44px; margin-bottom: 18px; border-radius: 13px; color: var(--green-800); background: var(--green-100); font-size: 20px; font-weight: 900; }
+    .commit-card h3 { margin: 0; font-size: 18px; }
+    .commit-card p { margin: 10px 0 0; color: var(--muted); font-size: 13px; }
+
+    /* Contact */
+    .contact-section { padding: 0 0 90px; }
+    .contact-shell {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      border-radius: 30px;
+      overflow: hidden;
+      background: var(--green-950);
+      color: var(--white);
+      box-shadow: var(--shadow);
+    }
+    .contact-copy {
+      padding: 58px;
+      background:
+        radial-gradient(circle at 10% 90%, rgba(154,223,91,.17), transparent 34%),
+        var(--green-950);
+    }
+    .contact-copy .eyebrow { color: var(--lime); }
+    .contact-copy .eyebrow::before { background: var(--lime); }
+    .contact-copy h2 { margin: 0; font-size: clamp(34px, 4vw, 52px); line-height: 1.08; letter-spacing: -.035em; }
+    .contact-copy > p { color: rgba(255,255,255,.68); }
+    .contact-list { display: grid; gap: 16px; margin-top: 34px; }
+    .contact-item { display: flex; gap: 14px; align-items: start; }
+    .contact-item i { display: grid; place-items: center; flex: 0 0 38px; width: 38px; height: 38px; border-radius: 12px; background: rgba(255,255,255,.08); color: var(--lime); font-style: normal; }
+    .contact-item span { display: block; color: rgba(255,255,255,.58); font-size: 12px; }
+    .contact-item b { display: block; margin-top: 3px; font-size: 15px; }
+    .contact-form { padding: 42px; background: var(--white); color: var(--ink); }
+    .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px; }
+    .field { display: grid; gap: 7px; }
+    .field.full { grid-column: 1 / -1; }
+    .field label { font-size: 13px; font-weight: 800; }
+    .field input, .field select, .field textarea {
+      width: 100%;
+      min-height: 50px;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      outline: none;
+      background: #fbfdfc;
+      transition: border .2s ease, box-shadow .2s ease;
+    }
+    .field textarea { min-height: 110px; resize: vertical; }
+    .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--green-500); box-shadow: 0 0 0 4px rgba(39,182,110,.11); }
+    .form-note { margin: 14px 0 20px; color: var(--muted); font-size: 12px; }
+    .form-success, .form-error { display: none; margin-top: 14px; padding: 12px 14px; border-radius: 12px; font-weight: 750; }
+    .form-success { color: var(--green-900); background: var(--green-100); }
+    .form-error { color: #8a1c1c; background: #fff0f0; border: 1px solid #ffd0d0; }
+    .form-success.show, .form-error.show { display: block; }
+    .contact-form .btn[disabled] { opacity: .72; cursor: wait; }
+
+    /* Footer */
+    footer { padding: 48px 0 26px; background: #041f16; color: rgba(255,255,255,.66); }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr .8fr .8fr; gap: 48px; }
+    .footer-brand { display: flex; align-items: center; gap: 12px; color: var(--white); font-size: 18px; font-weight: 900; }
+    .footer-brand img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; background: var(--white); }
+    footer p { max-width: 470px; font-size: 14px; }
+    footer h4 { margin: 0 0 16px; color: var(--white); font-size: 14px; }
+    .footer-links { display: grid; gap: 9px; font-size: 14px; }
+    .footer-bottom { display: flex; justify-content: space-between; gap: 20px; margin-top: 42px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.10); font-size: 12px; }
+
+    /* Mobile drawer */
+    .mobile-menu {
+      position: fixed;
+      inset: 0;
+      z-index: 1200;
+      display: none;
+      background: rgba(3,28,19,.52);
+      backdrop-filter: blur(6px);
+    }
+    .mobile-menu.open { display: block; }
+    .mobile-panel {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: min(88vw, 380px);
+      height: 100%;
+      padding: 24px;
+      background: var(--white);
+      box-shadow: -20px 0 60px rgba(0,0,0,.18);
+      animation: slideIn .25s ease both;
+    }
+    .mobile-head { display: flex; align-items: center; justify-content: space-between; }
+    .mobile-head b { color: var(--green-900); }
+    .mobile-close { width: 42px; height: 42px; border: 1px solid var(--line); border-radius: 12px; background: var(--white); }
+    .mobile-links { display: grid; gap: 4px; margin-top: 32px; }
+    .mobile-links a { padding: 14px 4px; border-bottom: 1px solid var(--line); font-weight: 800; }
+    .mobile-panel .btn { width: 100%; margin-top: 24px; }
+
+    .floating-actions {
+      position: fixed;
+      z-index: 900;
+      right: 18px;
+      bottom: 18px;
+      display: grid;
+      gap: 10px;
+    }
+    .float-btn {
+      display: grid;
+      place-items: center;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      color: var(--white);
+      background: var(--green-700);
+      box-shadow: 0 10px 25px rgba(6,59,40,.26);
+      font-weight: 900;
+    }
+    .float-btn.secondary { background: #2369b2; }
+
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+    @keyframes slideIn { from { transform: translateX(100%); } to { transform: translateX(0); } }
+
+    @media (max-width: 1060px) {
+      .nav-links, .header-phone, .nav-actions .btn { display: none; }
+      .menu-toggle { display: grid; place-items: center; }
+      .hero-content { width: min(760px, 83%); }
+      .hero-card { display: none; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .stat:nth-child(2) { border-right: 0; }
+      .stat:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+      .about-grid, .tech-grid { gap: 46px; }
+      .service-grid { grid-template-columns: repeat(2, 1fr); }
+      .capacity-layout { grid-template-columns: 260px 1fr; }
+      .commit-grid { grid-template-columns: repeat(3, 1fr); }
+      .contact-copy { padding: 42px; }
+    }
+
+    @media (max-width: 800px) {
+      .section { padding: 78px 0; }
+      .section-head { display: block; margin-bottom: 34px; }
+      .section-head .section-lead { margin-top: 18px; }
+      .hero { min-height: 760px; }
+      .hero-content { width: 100%; }
+      .hero h1 { font-size: clamp(43px, 13vw, 68px); }
+      .hero-trust { gap: 16px; }
+      .stats-wrap { margin-top: -28px; }
+      .about-grid, .tech-grid, .contact-shell { grid-template-columns: 1fr; }
+      .about-grid { gap: 58px; }
+      .about-media { max-width: 520px; }
+      .about-badge { right: -4px; }
+      .capacity-layout { grid-template-columns: 1fr; }
+      .capacity-tabs { position: static; display: flex; overflow-x: auto; gap: 8px; }
+      .tab-btn { flex: 0 0 auto; width: auto; white-space: nowrap; }
+      .tab-btn span:last-child { display: none; }
+      .process-grid { grid-template-columns: repeat(2, 1fr); }
+      .project-grid { grid-template-columns: 1fr; }
+      .project-card { min-height: 390px; }
+      .finance-bars { grid-template-columns: 1fr; }
+      .commit-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid > div:first-child { grid-column: 1 / -1; }
+    }
+
+    @media (max-width: 560px) {
+      .container { width: min(calc(100% - 28px), var(--container)); }
+      .nav { min-height: 72px; }
+      .brand-logo { width: 42px; height: 42px; }
+      .hero { min-height: 770px; background-position: 62% center; }
+      .hero-content { padding-top: 76px; }
+      .hero-kicker { font-size: 11px; }
+      .hero-actions { display: grid; }
+      .hero-actions .btn { width: 100%; }
+      .hero-trust { display: grid; grid-template-columns: 1fr 1fr; }
+      .stats { grid-template-columns: 1fr; }
+      .stat { border-right: 0; border-bottom: 1px solid var(--line); padding: 24px; }
+      .stat:last-child { border-bottom: 0; }
+      .check-list, .service-grid, .metric-grid, .skill-list, .cert-grid, .process-grid, .tech-points, .commit-grid, .form-grid, .footer-grid { grid-template-columns: 1fr; }
+      .about-badge { position: relative; right: auto; bottom: auto; width: 100%; margin-top: -32px; border-radius: 0 0 18px 18px; }
+      .service-card { min-height: 400px; }
+      .capacity-panel { padding: 28px 22px; }
+      .cert-card { grid-template-columns: 74px 1fr; }
+      .cert-card img { width: 74px; height: 98px; }
+      .project-card { min-height: 360px; }
+      .project-info { padding: 23px; }
+      .project-info h3 { font-size: 23px; }
+      .contact-copy, .contact-form { padding: 30px 22px; }
+      .field.full { grid-column: auto; }
+      .footer-grid > div:first-child { grid-column: auto; }
+      .footer-bottom { flex-direction: column; }
+      .floating-actions { right: 12px; bottom: 12px; }
+      .float-btn { width: 48px; height: 48px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class='site-header' id='siteHeader'>
+    <div class='container nav'>
+      <a class='brand' href='#home' aria-label='Royal Việt Nam'>
+        <img class='brand-logo' src='assets/logo.webp' alt='Logo Royal Việt Nam'>
+        <span>ROYAL VIỆT NAM<small>Đầu tư và xây dựng</small></span>
+      </a>
+      <nav class='nav-links' aria-label='Điều hướng chính'>
+        <a href='#gioi-thieu'>Giới thiệu</a>
+        <a href='#linh-vuc'>Lĩnh vực</a>
+        <a href='#nang-luc'>Năng lực</a>
+        <a href='#du-an'>Dự án</a>
+        <a href='#cong-nghe'>Công nghệ</a>
+        <a href='#lien-he'>Liên hệ</a>
+      </nav>
+      <div class='nav-actions'>
+        <a class='header-phone' href='tel:+84944381033'><span>Hotline dự án</span><strong>0944 381 033</strong></a>
+        <a class='btn btn-primary' href='#lien-he'>Nhận báo giá</a>
+      </div>
+      <button class='menu-toggle' id='menuToggle' aria-label='Mở menu' aria-expanded='false'>☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class='hero' id='home'>
+      <div class='container'>
+        <div class='hero-content'>
+          <div class='hero-kicker'><i></i> Nhà thầu xây dựng từ năm 2011</div>
+          <h1>Giải pháp xây dựng <span>công nghiệp</span> bền vững</h1>
+          <p>Royal Việt Nam tổ chức thi công nhà máy, nhà xưởng, công trình dân dụng, cải tạo bệnh viện và hạ tầng viễn thông với trọng tâm chất lượng, tiến độ, an toàn và hiệu quả đầu tư.</p>
+          <div class='hero-actions'>
+            <a class='btn btn-primary' href='#lien-he'>Nhận tư vấn dự án
+              <svg class='btn-icon' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'><path d='M5 12h14M13 6l6 6-6 6'/></svg>
+            </a>
+            <a class='btn btn-light' href='#du-an'>Xem dự án tiêu biểu</a>
+          </div>
+          <div class='hero-trust'>
+            <div class='trust-item'><span class='trust-dot'>✓</span> Chất lượng kiểm soát</div>
+            <div class='trust-item'><span class='trust-dot'>✓</span> Tiến độ rõ ràng</div>
+            <div class='trust-item'><span class='trust-dot'>✓</span> An toàn công trường</div>
+          </div>
+        </div>
+      </div>
+      <aside class='hero-card'>
+        <strong>Đang chuẩn bị đầu tư?</strong>
+        <p>Gửi bản vẽ, quy mô hoặc địa điểm dự án để nhận đề xuất phương án sơ bộ.</p>
+        <a href='#lien-he'>Gửi thông tin dự án →</a>
+      </aside>
+    </section>
+
+    <div class='container stats-wrap reveal'>
+      <section class='stats' aria-label='Năng lực nổi bật'>
+        <div class='stat'><div class='stat-value'><span class='counter' data-target='15'>0</span><small>+</small></div><div class='stat-label'>Năm kinh nghiệm hoạt động</div></div>
+        <div class='stat'><div class='stat-value'><span class='counter' data-target='100'>0</span><small>+</small></div><div class='stat-label'>Kỹ sư, cán bộ và công nhân</div></div>
+        <div class='stat'><div class='stat-value'><span class='counter' data-target='30'>0</span><small>+</small></div><div class='stat-label'>Nhóm máy móc và thiết bị</div></div>
+        <div class='stat'><div class='stat-value'><span class='counter' data-target='6'>0</span><small> nhóm</small></div><div class='stat-label'>Lĩnh vực thi công trọng điểm</div></div>
+      </section>
+    </div>
+
+    <section class='section' id='gioi-thieu'>
+      <div class='container about-grid'>
+        <div class='about-media reveal'>
+          <img src='assets/about.webp' alt='Công trình kiến trúc hiện đại trong hồ sơ Royal Việt Nam'>
+          <div class='about-badge'><b>2011</b><span>Năm Royal Việt Nam bắt đầu hành trình kiến tạo công trình</span></div>
+        </div>
+        <div class='about-copy reveal'>
+          <div class='eyebrow'>Về Royal Việt Nam</div>
+          <h2 class='section-title'>Năng lực thực tế tạo nên niềm tin lâu dài</h2>
+          <p>Công ty Cổ phần Đầu tư và Xây dựng Royal Việt Nam hoạt động chuyên sâu trong thi công công trình dân dụng và công nghiệp. Đội ngũ kỹ sư, kiến trúc sư, cán bộ kỹ thuật và công nhân được tổ chức theo từng dự án, giúp kiểm soát đồng thời chất lượng, khối lượng, tiến độ và an toàn.</p>
+          <p>Chúng tôi đồng hành với chủ đầu tư từ khảo sát, đề xuất giải pháp, lập kế hoạch thi công đến nghiệm thu, bàn giao và bảo hành công trình.</p>
+          <ul class='check-list'>
+            <li><i>✓</i>Tổ chức thi công chuyên nghiệp</li>
+            <li><i>✓</i>Chủ động nhân lực và thiết bị</li>
+            <li><i>✓</i>Minh bạch tiến độ và chi phí</li>
+            <li><i>✓</i>Bảo hành sau bàn giao</li>
+          </ul>
+          <a class='btn btn-outline' href='#nang-luc'>Khám phá năng lực</a>
+        </div>
+      </div>
+    </section>
+
+    <section class='section services' id='linh-vuc'>
+      <div class='container'>
+        <div class='section-head reveal'>
+          <div>
+            <div class='eyebrow'>Lĩnh vực hoạt động</div>
+            <h2 class='section-title'>Một đầu mối, nhiều năng lực triển khai</h2>
+          </div>
+          <p class='section-lead'>Các nhóm dịch vụ được tổ chức theo nhu cầu thực tế của chủ đầu tư, từ xây mới, cải tạo đến hạ tầng kỹ thuật chuyên ngành.</p>
+        </div>
+        <div class='service-grid'>
+          <article class='service-card reveal'>
+            <img src='assets/service-industrial.webp' alt='Nhà máy công nghiệp'>
+            <div class='service-body'><span class='service-no'>01</span><h3>Nhà máy và nhà xưởng</h3><p>Thi công nhà máy sản xuất, nhà xưởng, kho vận, công trình phụ trợ và hạ tầng trong khu công nghiệp.</p></div>
+          </article>
+          <article class='service-card reveal'>
+            <img src='assets/service-civil.webp' alt='Công trình dân dụng'>
+            <div class='service-body'><span class='service-no'>02</span><h3>Công trình dân dụng</h3><p>Khách sạn, văn phòng, trường học, trung tâm tổ chức sự kiện và các công trình dịch vụ.</p></div>
+          </article>
+          <article class='service-card reveal'>
+            <img src='assets/service-renovation.webp' alt='Cải tạo nội thất bệnh viện'>
+            <div class='service-body'><span class='service-no'>03</span><h3>Cải tạo và hoàn thiện</h3><p>Cải tạo bệnh viện, văn phòng và công trình đang vận hành, hạn chế ảnh hưởng tới hoạt động hiện hữu.</p></div>
+          </article>
+          <article class='service-card reveal'>
+            <img src='assets/service-telecom.webp' alt='Hạ tầng trạm viễn thông'>
+            <div class='service-body'><span class='service-no'>04</span><h3>Hạ tầng viễn thông</h3><p>Xây mới, lắp đặt, củng cố và gia cố trạm thu phát sóng cùng các hạng mục kỹ thuật liên quan.</p></div>
+          </article>
+          <article class='service-card reveal'>
+            <img src='assets/service-supervision.webp' alt='Kiểm tra và giám sát thi công'>
+            <div class='service-body'><span class='service-no'>05</span><h3>Giám sát thi công</h3><p>Kiểm soát chất lượng, khối lượng, tiến độ, an toàn và tuân thủ hồ sơ thiết kế tại công trường.</p></div>
+          </article>
+          <article class='service-card reveal'>
+            <img src='assets/service-foundation.webp' alt='Thi công nền móng công nghiệp'>
+            <div class='service-body'><span class='service-no'>06</span><h3>Nền móng và hạ tầng</h3><p>Thi công nền móng, xử lý nền, sân đường và hạ tầng kỹ thuật cho nhà xưởng và công trình công nghiệp.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class='section' id='nang-luc'>
+      <div class='container'>
+        <div class='section-head reveal'>
+          <div>
+            <div class='eyebrow'>Năng lực doanh nghiệp</div>
+            <h2 class='section-title'>Sẵn sàng tổ chức dự án từ nguồn lực đến kiểm soát</h2>
+          </div>
+          <p class='section-lead'>Thông tin được chọn lọc từ hồ sơ năng lực Royal Việt Nam, trình bày theo các nhóm mà chủ đầu tư thường quan tâm.</p>
+        </div>
+
+        <div class='capacity-layout reveal'>
+          <div class='capacity-tabs' role='tablist' aria-label='Nhóm năng lực'>
+            <button class='tab-btn active' data-tab='human' role='tab'><span>Nhân sự</span><span>01</span></button>
+            <button class='tab-btn' data-tab='equipment' role='tab'><span>Thiết bị</span><span>02</span></button>
+            <button class='tab-btn' data-tab='legal' role='tab'><span>Pháp lý</span><span>03</span></button>
+            <button class='tab-btn' data-tab='finance' role='tab'><span>Tài chính</span><span>04</span></button>
+          </div>
+
+          <div>
+            <article class='capacity-panel active' id='panel-human' role='tabpanel'>
+              <h3>Đội ngũ đa chuyên môn, tổ chức theo dự án</h3>
+              <p>Cơ cấu gồm khối kinh doanh, kỹ thuật dự án, giám sát thi công, vật tư thiết bị, tài chính kế toán và hành chính nhân sự.</p>
+              <div class='metric-grid'>
+                <div class='metric-card'><b>18</b><span>Nhân sự trình độ đại học</span></div>
+                <div class='metric-card'><b>18</b><span>Nhân sự cao đẳng và trung cấp</span></div>
+                <div class='metric-card'><b>70+</b><span>Công nhân theo nhiều nhóm nghề</span></div>
+              </div>
+              <div class='skill-list'>
+                <div class='skill-item'>Kỹ sư xây dựng và kinh tế xây dựng</div>
+                <div class='skill-item'>Kiến trúc sư, kỹ sư cơ khí và trắc đạc</div>
+                <div class='skill-item'>Công nhân nề, sắt, bê tông và cốp pha</div>
+                <div class='skill-item'>Công nhân điện nước và kỹ thuật viễn thông</div>
+              </div>
+            </article>
+
+            <article class='capacity-panel' id='panel-equipment' role='tabpanel'>
+              <h3>Thiết bị phục vụ thi công và kiểm định</h3>
+              <p>Danh mục trong hồ sơ gồm 30 nhóm thiết bị, hỗ trợ từ công tác nền móng, bê tông, trắc địa đến kiểm tra kỹ thuật chuyên ngành.</p>
+              <div class='equipment-cloud'>
+                <span>Máy xúc và máy đào</span><span>Máy bơm bê tông</span><span>Máy trộn và máy đầm</span><span>Máy toàn đạc</span><span>Máy uốn và cắt thép</span><span>Máy phát điện</span><span>Máy lu và xe ben</span><span>Thiết bị đo lực</span><span>Máy đo điện trở đất</span><span>Thiết bị siêu âm kim loại</span><span>Máy tời mặt đất</span><span>Máy nén khí</span>
+              </div>
+              <div class='metric-grid'>
+                <div class='metric-card'><b>30</b><span>Nhóm thiết bị được liệt kê</span></div>
+                <div class='metric-card'><b>06</b><span>Cờ lê đo lực</span></div>
+                <div class='metric-card'><b>05</b><span>Máy đo lực căng</span></div>
+              </div>
+            </article>
+
+            <article class='capacity-panel' id='panel-legal' role='tabpanel'>
+              <h3>Hồ sơ pháp lý và chứng nhận năng lực</h3>
+              <p>Doanh nghiệp có đăng ký kinh doanh và chứng chỉ năng lực hoạt động xây dựng. Bản công bố trên website nên sử dụng ảnh đã che thông tin không cần thiết và bản cập nhật còn hiệu lực.</p>
+              <div class='cert-grid'>
+                <div class='cert-card'><img src='assets/certificate-business.webp' alt='Giấy chứng nhận đăng ký doanh nghiệp'><div><b>Đăng ký doanh nghiệp</b><small>Mã số doanh nghiệp 0105617872 theo hồ sơ năng lực.</small></div></div>
+                <div class='cert-card'><img src='assets/certificate-capacity.webp' alt='Chứng chỉ năng lực hoạt động xây dựng'><div><b>Chứng chỉ năng lực xây dựng</b><small>Hồ sơ chứng minh năng lực hoạt động xây dựng của doanh nghiệp.</small></div></div>
+              </div>
+            </article>
+
+            <article class='capacity-panel' id='panel-finance' role='tabpanel'>
+              <h3>Năng lực tài chính giai đoạn 2022 đến 2024</h3>
+              <p>Biểu đồ dưới đây mô phỏng số liệu được trình bày trong hồ sơ năng lực. Số liệu chính thức cần được đối soát với báo cáo tài chính trước khi công bố rộng rãi.</p>
+              <div class='finance-bars'>
+                <div class='chart-card'>
+                  <h4>Tổng doanh thu, đơn vị tỷ đồng</h4>
+                  <div class='bar-chart'>
+                    <div class='bar-col'><div class='bar' style='height:66%'><em>17,82</em></div><span>2022</span></div>
+                    <div class='bar-col'><div class='bar' style='height:74%'><em>19,06</em></div><span>2023</span></div>
+                    <div class='bar-col'><div class='bar' style='height:84%'><em>21,67</em></div><span>2024</span></div>
+                  </div>
+                </div>
+                <div class='chart-card'>
+                  <h4>Lợi nhuận trước thuế, đơn vị triệu đồng</h4>
+                  <div class='bar-chart'>
+                    <div class='bar-col'><div class='bar' style='height:48%'><em>161,37</em></div><span>2022</span></div>
+                    <div class='bar-col'><div class='bar' style='height:75%'><em>289,58</em></div><span>2023</span></div>
+                    <div class='bar-col'><div class='bar' style='height:86%'><em>319,33</em></div><span>2024</span></div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class='section process'>
+      <div class='container'>
+        <div class='section-head reveal'>
+          <div><div class='eyebrow'>Quy trình triển khai</div><h2 class='section-title'>Mỗi giai đoạn đều có đầu việc và trách nhiệm rõ ràng</h2></div>
+          <p class='section-lead'>Quy trình có thể điều chỉnh theo loại hợp đồng, quy mô, địa điểm và điều kiện vận hành của từng dự án.</p>
+        </div>
+        <div class='process-grid'>
+          <article class='process-card reveal'><div class='process-step'><span>Bước</span><b>01</b></div><h3>Tiếp nhận yêu cầu</h3><p>Thu thập loại công trình, quy mô, địa điểm, mốc tiến độ và yêu cầu đặc thù.</p></article>
+          <article class='process-card reveal'><div class='process-step'><span>Bước</span><b>02</b></div><h3>Khảo sát hiện trạng</h3><p>Đánh giá mặt bằng, điều kiện thi công, hạ tầng kết nối và các rủi ro ban đầu.</p></article>
+          <article class='process-card reveal'><div class='process-step'><span>Bước</span><b>03</b></div><h3>Đề xuất giải pháp</h3><p>Xây dựng phương án kỹ thuật, biện pháp thi công và kế hoạch huy động nguồn lực.</p></article>
+          <article class='process-card reveal'><div class='process-step'><span>Bước</span><b>04</b></div><h3>Báo giá và ký kết</h3><p>Thống nhất phạm vi, khối lượng, tiến độ, giá trị và trách nhiệm của các bên.</p></article>
+          <article class='process-card reveal'><div class='process-step'><span>Bước</span><b>05</b></div><h3>Tổ chức thi công</h3><p>Điều phối nhân lực, thiết bị, vật tư và kiểm soát chất lượng, tiến độ, an toàn.</p></article>
+          <article class='process-card reveal'><div class='process-step'><span>Bước</span><b>06</b></div><h3>Nghiệm thu và bàn giao</h3><p>Hoàn thiện hồ sơ chất lượng, nghiệm thu, bàn giao và triển khai bảo hành.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class='section' id='du-an'>
+      <div class='container'>
+        <div class='section-head reveal'>
+          <div><div class='eyebrow'>Dự án tiêu biểu</div><h2 class='section-title'>Kinh nghiệm qua các loại hình công trình</h2></div>
+          <p class='section-lead'>Hình ảnh được sử dụng từ hồ sơ năng lực doanh nghiệp, gồm phối cảnh và hình ảnh thi công thực tế.</p>
+        </div>
+        <div class='projects-toolbar reveal' aria-label='Bộ lọc dự án'>
+          <button class='filter-btn active' data-filter='all'>Tất cả</button>
+          <button class='filter-btn' data-filter='industrial'>Công nghiệp</button>
+          <button class='filter-btn' data-filter='civil'>Dân dụng</button>
+          <button class='filter-btn' data-filter='telecom'>Viễn thông</button>
+          <button class='filter-btn' data-filter='foundation'>Nền móng</button>
+        </div>
+        <div class='project-grid'>
+          <article class='project-card reveal' data-category='industrial'><img src='assets/project-kangaroo.webp' alt='Nhà máy công nghệ cao Kangaroo'><div class='project-info'><div class='project-meta'><span>Công nghiệp</span><span>2018</span></div><h3>Mở rộng nhà máy công nghệ cao Kangaroo</h3><p>Nhà máy sản xuất và lắp ráp công nghệ cao.</p></div></article>
+          <article class='project-card reveal' data-category='industrial'><img src='assets/project-hathanh.webp' alt='Nhà máy may Hà Thành'><div class='project-info'><div class='project-meta'><span>Công nghiệp</span><span>2022</span></div><h3>Nhà máy may Hà Thành</h3><p>Khu công nghiệp An Nghiệp, tỉnh Sóc Trăng.</p></div></article>
+          <article class='project-card reveal' data-category='industrial'><img src='assets/project-gps.webp' alt='Nhà máy GPS Hà Nam'><div class='project-info'><div class='project-meta'><span>Công nghiệp</span><span>2025</span></div><h3>Nhà máy GPS Hà Nam</h3><p>Cụm công nghiệp Lê Hồ, khu vực Ninh Bình.</p></div></article>
+          <article class='project-card reveal' data-category='civil'><img src='assets/project-hospital.webp' alt='Cải tạo Bệnh viện Phụ sản Trung ương'><div class='project-info'><div class='project-meta'><span>Cải tạo</span><span>2022</span></div><h3>Bệnh viện Phụ sản Trung ương</h3><p>Cải tạo nội thất và không gian chức năng.</p></div></article>
+          <article class='project-card reveal' data-category='telecom'><img src='assets/project-telecom.webp' alt='Trạm thu phát sóng Viettel'><div class='project-info'><div class='project-meta'><span>Viễn thông</span><span>2023 đến 2025</span></div><h3>Trạm thu phát sóng Viettel</h3><p>Thi công, lắp đặt, sửa chữa và gia cố trạm BTS.</p></div></article>
+          <article class='project-card reveal' data-category='civil'><img src='assets/project-showroom.webp' alt='Showroom Đình Vũ Hải Phòng'><div class='project-info'><div class='project-meta'><span>Dân dụng</span><span>Hải Phòng</span></div><h3>Showroom Đình Vũ</h3><p>Hạng mục nền móng và tổ chức thi công công trình.</p></div></article>
+          <article class='project-card reveal' data-category='foundation'><img src='assets/project-vinhphuc.webp' alt='Công trình MKS Vĩnh Phúc'><div class='project-info'><div class='project-meta'><span>Nền móng</span><span>Vĩnh Phúc</span></div><h3>Công trình MKS</h3><p>Thi công nền móng, thử tải và kiểm tra kết quả nén tĩnh.</p></div></article>
+          <article class='project-card reveal' data-category='foundation industrial'><img src='assets/project-thaibinh.webp' alt='Xưởng khăn Thái Bình'><div class='project-info'><div class='project-meta'><span>Nhà xưởng</span><span>Thái Bình</span></div><h3>Xưởng khăn Thái Bình</h3><p>Thi công nền móng và hạng mục nhà xưởng.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class='section tech-section' id='cong-nghe'>
+      <div class='container tech-grid'>
+        <div class='reveal'>
+          <div class='eyebrow'>Giải pháp công nghệ</div>
+          <h2 class='section-title'>Ứng dụng Vtopbase cho nền móng công trình</h2>
+          <p class='section-lead'>Royal Việt Nam giới thiệu Vtopbase như một giải pháp khoa học công nghệ đã được ứng dụng tại một số công trình nhà xưởng, showroom và dự án tại Vĩnh Phúc, Sa Pa, Đức Hòa, Hải Phòng và Thái Bình.</p>
+          <div class='tech-points'>
+            <div class='tech-point'>Hỗ trợ tăng khả năng chịu tải của nền móng</div>
+            <div class='tech-point'>Kiểm tra bằng thí nghiệm thử tải và nén tĩnh</div>
+            <div class='tech-point'>Tối ưu phương án thi công theo điều kiện địa chất</div>
+            <div class='tech-point'>Hướng đến rút ngắn tiến độ và kiểm soát chi phí</div>
+          </div>
+          <a class='btn btn-light' href='#lien-he'>Trao đổi về giải pháp nền móng</a>
+        </div>
+        <div class='tech-media reveal'><img src='assets/vtopbase.webp' alt='Hình ảnh thi công và thử nghiệm giải pháp nền móng Vtopbase'></div>
+      </div>
+    </section>
+
+    <section class='section-sm'>
+      <div class='container'>
+        <div class='section-head reveal'>
+          <div><div class='eyebrow'>Cam kết dự án</div><h2 class='section-title'>Năm nguyên tắc xuyên suốt quá trình thực hiện</h2></div>
+        </div>
+        <div class='commit-grid'>
+          <article class='commit-card reveal'><div class='commit-icon'>01</div><h3>Chất lượng</h3><p>Vật liệu rõ nguồn gốc, quy trình thi công và nghiệm thu theo từng giai đoạn.</p></article>
+          <article class='commit-card reveal'><div class='commit-icon'>02</div><h3>Tiến độ</h3><p>Lập kế hoạch, huy động nguồn lực và cập nhật các mốc thực hiện rõ ràng.</p></article>
+          <article class='commit-card reveal'><div class='commit-icon'>03</div><h3>An toàn</h3><p>Tuân thủ quy định an toàn lao động, bảo vệ con người và tài sản công trường.</p></article>
+          <article class='commit-card reveal'><div class='commit-icon'>04</div><h3>Minh bạch</h3><p>Thống nhất phạm vi, khối lượng, chi phí và quy trình xử lý phát sinh.</p></article>
+          <article class='commit-card reveal'><div class='commit-icon'>05</div><h3>Đồng hành</h3><p>Phối hợp từ giai đoạn chuẩn bị đến nghiệm thu, bảo hành và bảo trì.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class='contact-section' id='lien-he'>
+      <div class='container contact-shell reveal'>
+        <div class='contact-copy'>
+          <div class='eyebrow'>Liên hệ dự án</div>
+          <h2>Gửi thông tin để nhận đề xuất sơ bộ</h2>
+          <p>Chỉ cần cung cấp loại công trình, địa điểm và thời gian dự kiến. Đội ngũ Royal Việt Nam sẽ liên hệ để trao đổi chi tiết.</p>
+          <div class='contact-list'>
+            <div class='contact-item'><i>☎</i><div><span>Hotline</span><b><a href='tel:+84944381033'>0944 381 033</a></b></div></div>
+            <div class='contact-item'><i>✉</i><div><span>Email</span><b><a href='mailto:royalvietnam95@gmail.com'>royalvietnam95@gmail.com</a></b></div></div>
+            <div class='contact-item'><i>⌂</i><div><span>Văn phòng</span><b>NV5.9, Liền kề Hải Âu, Phường Thanh Liệt, Hà Nội</b></div></div>
+          </div>
+        </div>
+        <form class='contact-form' id='contactForm' action='https://formsubmit.co/royalvietnam95@gmail.com' method='POST'>
+          <input type='hidden' name='_subject' value='Yêu cầu tư vấn mới từ website Royal Việt Nam'>
+          <input type='hidden' name='_template' value='table'>
+          <input type='hidden' name='_captcha' value='false'>
+          <input type='text' name='_honey' tabindex='-1' autocomplete='off' style='display:none'>
+          <div class='form-grid'>
+            <div class='field'><label for='name'>Họ và tên</label><input id='name' name='Họ và tên' autocomplete='name' placeholder='Nguyễn Văn A' required></div>
+            <div class='field'><label for='phone'>Số điện thoại</label><input id='phone' name='Số điện thoại' type='tel' autocomplete='tel' placeholder='09xx xxx xxx' required></div>
+            <div class='field'><label for='email'>Email</label><input id='email' name='email' type='email' autocomplete='email' placeholder='email@doanhnghiep.vn' required></div>
+            <div class='field'><label for='company'>Doanh nghiệp</label><input id='company' name='Doanh nghiệp' autocomplete='organization' placeholder='Tên công ty hoặc đơn vị'></div>
+            <div class='field'><label for='type'>Loại công trình</label><select id='type' name='Loại công trình'><option>Nhà máy, nhà xưởng</option><option>Công trình dân dụng</option><option>Cải tạo công trình</option><option>Hạ tầng viễn thông</option><option>Nền móng và hạ tầng</option><option>Khác</option></select></div>
+            <div class='field'><label for='location'>Địa điểm dự án</label><input id='location' name='Địa điểm dự án' placeholder='Tỉnh, thành phố'></div>
+            <div class='field full'><label for='timeline'>Thời gian dự kiến</label><input id='timeline' name='Thời gian dự kiến' placeholder='Ví dụ: Quý IV/2026'></div>
+            <div class='field full'><label for='message'>Nội dung cần tư vấn</label><textarea id='message' name='Nội dung cần tư vấn' placeholder='Mô tả quy mô, phạm vi công việc hoặc yêu cầu chính' required></textarea></div>
+          </div>
+          <p class='form-note'>Thông tin được gửi trực tiếp đến royalvietnam95@gmail.com và chỉ được sử dụng để liên hệ tư vấn dự án.</p>
+          <button class='btn btn-primary' id='submitButton' type='submit'>Gửi yêu cầu tư vấn</button>
+          <div class='form-success' id='formSuccess' role='status' aria-live='polite'>Gửi thông tin thành công. Royal Việt Nam sẽ liên hệ với Quý khách trong thời gian sớm nhất.</div>
+          <div class='form-error' id='formError' role='alert' aria-live='assertive'>Chưa thể gửi thông tin. Vui lòng gọi 0944 381 033 hoặc gửi email trực tiếp đến royalvietnam95@gmail.com.</div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class='container'>
+      <div class='footer-grid'>
+        <div>
+          <div class='footer-brand'><img src='assets/logo.webp' alt='Logo Royal Việt Nam'>ROYAL VIỆT NAM</div>
+          <p>Công ty Cổ phần Đầu tư và Xây dựng Royal Việt Nam cung cấp giải pháp thi công công trình công nghiệp, dân dụng, cải tạo và hạ tầng kỹ thuật.</p>
+          <p>Mã số doanh nghiệp: 0105617872</p>
+        </div>
+        <div><h4>Điều hướng</h4><div class='footer-links'><a href='#gioi-thieu'>Giới thiệu</a><a href='#linh-vuc'>Lĩnh vực</a><a href='#nang-luc'>Năng lực</a><a href='#du-an'>Dự án</a></div></div>
+        <div><h4>Liên hệ</h4><div class='footer-links'><a href='tel:+84944381033'>0944 381 033</a><a href='mailto:royalvietnam95@gmail.com'>royalvietnam95@gmail.com</a><span>Thanh Liệt, Hà Nội</span></div></div>
+      </div>
+      <div class='footer-bottom'><span>© <span id='year'></span> Royal Việt Nam.</span><span>Hình ảnh sử dụng từ hồ sơ năng lực doanh nghiệp.</span></div>
+    </div>
+  </footer>
+
+  <div class='floating-actions' aria-label='Liên hệ nhanh'>
+    <a class='float-btn secondary' href='mailto:royalvietnam95@gmail.com' title='Gửi email'>✉</a>
+    <a class='float-btn' href='tel:+84944381033' title='Gọi hotline'>☎</a>
+  </div>
+
+  <div class='mobile-menu' id='mobileMenu' aria-hidden='true'>
+    <div class='mobile-panel'>
+      <div class='mobile-head'><b>ROYAL VIỆT NAM</b><button class='mobile-close' id='mobileClose' aria-label='Đóng menu'>✕</button></div>
+      <nav class='mobile-links'><a href='#gioi-thieu'>Giới thiệu</a><a href='#linh-vuc'>Lĩnh vực hoạt động</a><a href='#nang-luc'>Năng lực doanh nghiệp</a><a href='#du-an'>Dự án tiêu biểu</a><a href='#cong-nghe'>Công nghệ Vtopbase</a><a href='#lien-he'>Liên hệ</a></nav>
+      <a class='btn btn-primary' href='tel:+84944381033'>Gọi 0944 381 033</a>
+    </div>
+  </div>
+
+  <script>
+    const header = document.getElementById('siteHeader');
+    const menu = document.getElementById('mobileMenu');
+    const toggle = document.getElementById('menuToggle');
+    const closeBtn = document.getElementById('mobileClose');
+
+    const updateHeader = () => header.classList.toggle('scrolled', window.scrollY > 24);
+    updateHeader();
+    window.addEventListener('scroll', updateHeader, { passive: true });
+
+    function openMenu() {
+      menu.classList.add('open');
+      menu.setAttribute('aria-hidden', 'false');
+      toggle.setAttribute('aria-expanded', 'true');
+      document.body.classList.add('menu-open');
+    }
+    function closeMenu() {
+      menu.classList.remove('open');
+      menu.setAttribute('aria-hidden', 'true');
+      toggle.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('menu-open');
+    }
+    toggle.addEventListener('click', openMenu);
+    closeBtn.addEventListener('click', closeMenu);
+    menu.addEventListener('click', e => { if (e.target === menu) closeMenu(); });
+    document.querySelectorAll('.mobile-links a, .mobile-panel .btn').forEach(a => a.addEventListener('click', closeMenu));
+
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const panels = document.querySelectorAll('.capacity-panel');
+    tabButtons.forEach(btn => btn.addEventListener('click', () => {
+      tabButtons.forEach(item => item.classList.remove('active'));
+      panels.forEach(panel => panel.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('panel-' + btn.dataset.tab).classList.add('active');
+    }));
+
+    const filters = document.querySelectorAll('.filter-btn');
+    const projects = document.querySelectorAll('.project-card');
+    filters.forEach(btn => btn.addEventListener('click', () => {
+      filters.forEach(item => item.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      projects.forEach(card => {
+        const categories = card.dataset.category.split(' ');
+        card.classList.toggle('hidden', filter !== 'all' && !categories.includes(filter));
+      });
+    }));
+
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: .12 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    const counters = document.querySelectorAll('.counter');
+    const counterObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const target = Number(el.dataset.target);
+        const duration = 900;
+        const start = performance.now();
+        const animate = now => {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.round(target * eased);
+          if (progress < 1) requestAnimationFrame(animate);
+        };
+        requestAnimationFrame(animate);
+        counterObserver.unobserve(el);
+      });
+    }, { threshold: .7 });
+    counters.forEach(el => counterObserver.observe(el));
+
+    const contactForm = document.getElementById('contactForm');
+    const submitButton = document.getElementById('submitButton');
+    const formSuccess = document.getElementById('formSuccess');
+    const formError = document.getElementById('formError');
+
+    contactForm.addEventListener('submit', async event => {
+      event.preventDefault();
+      formSuccess.classList.remove('show');
+      formError.classList.remove('show');
+
+      if (!contactForm.checkValidity()) {
+        contactForm.reportValidity();
+        return;
+      }
+
+      const originalText = submitButton.textContent;
+      submitButton.disabled = true;
+      submitButton.textContent = 'Đang gửi...';
+
+      try {
+        const formData = new FormData(contactForm);
+        formData.set('_replyto', document.getElementById('email').value.trim());
+        formData.set('Nguồn gửi', window.location.href);
+
+        const response = await fetch('https://formsubmit.co/ajax/royalvietnam95@gmail.com', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: formData
+        });
+        const result = await response.json().catch(() => ({}));
+
+        if (!response.ok || result.success === false) {
+          throw new Error(result.message || 'Không thể gửi biểu mẫu');
+        }
+
+        contactForm.reset();
+        formSuccess.classList.add('show');
+        formSuccess.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      } catch (error) {
+        console.error('Lỗi gửi biểu mẫu:', error);
+        formError.classList.add('show');
+        formError.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = originalText;
+      }
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
